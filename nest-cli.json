@@ -43,6 +43,24 @@
       "compilerOptions": {
         "tsConfigPath": "libs/views/tsconfig.lib.json"
       }
+    },
+    "auftraege": {
+      "type": "application",
+      "root": "apps/auftraege",
+      "entryFile": "main",
+      "sourceRoot": "apps/auftraege/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/auftraege/tsconfig.app.json"
+      }
+    },
+    "core": {
+      "type": "library",
+      "root": "libs/core",
+      "entryFile": "index",
+      "sourceRoot": "libs/core/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/core/tsconfig.lib.json"
+      }
     }
   }
 }

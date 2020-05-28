@@ -1,8 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { Transport, MicroserviceOptions } from '@nestjs/microservices';
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
-import { RESSOURCEN } from '@app/core';
+import { MicroserviceOptions } from '@nestjs/microservices';
+import { AUFTRAGE } from '@app/core';
 
 async function bootstrap() {
   /*const app = await NestFactory.create<NestFastifyApplication>(
@@ -21,7 +20,7 @@ async function bootstrap() {
 
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
-    RESSOURCEN,
+    AUFTRAGE,
   );
   app.listen(() => console.log('Microservice is listening'));
 }
