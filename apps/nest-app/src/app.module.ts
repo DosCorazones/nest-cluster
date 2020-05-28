@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { RessourcenController } from './ressourcen.controller';
-import { AuftraegeController } from './auftraege.controller';
+import { RessourcenController } from './api/ressourcen.controller';
+import { AuftraegeController } from './api/auftraege.controller';
 
 @Module({
   imports: [],
