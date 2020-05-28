@@ -16,6 +16,12 @@
       ],
       "@app/auth/*": [
         "libs/auth/src/*"
+      ],
+      "@app/views": [
+        "libs/views/src"
+      ],
+      "@app/views/*": [
+        "libs/views/src/*"
       ]
     }
   },

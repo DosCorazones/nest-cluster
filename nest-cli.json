@@ -34,6 +34,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/auth/tsconfig.lib.json"
       }
+    },
+    "views": {
+      "type": "library",
+      "root": "libs/views",
+      "entryFile": "index",
+      "sourceRoot": "libs/views/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/views/tsconfig.lib.json"
+      }
     }
   }
 }

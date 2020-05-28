@@ -69,7 +69,9 @@
     ],
     "moduleNameMapper": {
       "@app/auth/(.*)": "<rootDir>/libs/auth/src/$1",
-      "@app/auth": "<rootDir>/libs/auth/src"
+      "@app/auth": "<rootDir>/libs/auth/src",
+      "@app/views/(.*)": "<rootDir>/libs/views/src/$1",
+      "@app/views": "<rootDir>/libs/views/src"
     }
   }
 }
