@@ -1,7 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { ClientProxyFactory, Transport, ClientProxy } from '@nestjs/microservices';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiBody } from '@nestjs/swagger';
 import { RESSOURCEN_TRANSPORT } from '@app/core';
+import { BenutzerDto } from '@app/views';
 
 @ApiTags('ressourcen')
 @Controller({path: 'ressourcen'})
@@ -15,5 +16,15 @@ export class RessourcenController {
   @Get()
   getHello() {
     return this.client.send<string, string>('getHello', 'Michael').toPromise();
+  }
+
+  @Post('benutzer')
+  postBenutzer(@Body() createBenutzer: BenutzerDto) {
+    return this.client.send<BenutzerDto,BenutzerDto>('benutzer.create', createBenutzer).toPromise();
+
+  }
+  @Get('benutzer')
+  getBenutzerList() {
+    return this.client.send('benutzer.list', {}).toPromise();
   }
 }
