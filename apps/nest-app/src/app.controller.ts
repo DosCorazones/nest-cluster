@@ -1,12 +1,21 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { ClientProxyFactory, Transport, ClientProxy } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  private client: ClientProxy;
+
+  constructor() {
+    this.client = ClientProxyFactory.create({
+      transport: Transport.TCP,
+      options: {
+        port: 4000,
+      },
+    });
+  }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getHello() {
+    return this.client.send<string, string>('getHello', 'Michael').toPromise();
   }
 }
