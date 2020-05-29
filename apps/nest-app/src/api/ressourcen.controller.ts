@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { ClientProxyFactory, Transport, ClientProxy } from '@nestjs/microservices';
+import { ClientProxyFactory, Transport, ClientProxy, Client } from '@nestjs/microservices';
 import { ApiTags, ApiBody } from '@nestjs/swagger';
 import { RESSOURCEN_TRANSPORT } from '@app/core';
 import { BenutzerDto } from '@app/views';
@@ -7,11 +7,9 @@ import { BenutzerDto } from '@app/views';
 @ApiTags('ressourcen')
 @Controller({path: 'ressourcen'})
 export class RessourcenController {
+  @Client(RESSOURCEN_TRANSPORT)
   private client: ClientProxy;
 
-  constructor() {
-    this.client = ClientProxyFactory.create(RESSOURCEN_TRANSPORT);
-  }
 
   @Get()
   getHello() {

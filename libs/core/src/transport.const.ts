@@ -1,17 +1,17 @@
-import { Transport, ClientOptions } from "@nestjs/microservices";
+import { Transport, NatsOptions } from "@nestjs/microservices";
 
-export const RESSOURCEN_TRANSPORT: ClientOptions = {
-  transport: Transport.TCP,
+export const RESSOURCEN_TRANSPORT: NatsOptions = {
+  transport: Transport.NATS,
   options: {
-    host: 'ressourcen',
-    port: 4000,
+    name: 'ressourcen',
+    url: 'nats://nats:4222'
   },
 }
 
-export const AUFTRAGE_TRANSPORT: ClientOptions = {
-  transport: Transport.TCP,
+export const AUFTRAGE_TRANSPORT: NatsOptions = {
+  transport: Transport.NATS,
   options: {
-    host: 'auftraege',
-    port: 4001,
+    name: 'auftraege',
+    url: 'nats://nats:4222'
   },
 }

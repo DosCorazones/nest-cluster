@@ -4,34 +4,37 @@ version: '3.1'
 services:
   nats:
     image: 'nats'
+    ports:
+      - 8222:8222
+      - 4222:4222
 
   api:
     image: node:12
     volumes:
       - .:/usr/src/service
     working_dir: /usr/src/service
-    command: node dist/apps/nest-app/main.js
-    depends_on:
-      - nats
+    command: npm run start:api
     ports: 
       - 3000:3000
-    
+    depends_on:
+      - nats
+
   ressourcen:
     image: node:12
     volumes:
       - .:/usr/src/service
     working_dir: /usr/src/service
-    command: node dist/apps/ressourcen/main.js
+    command: npm run start:ressourcen
     depends_on:
       - db
       - nats
-      
+
   auftraege:
     image: node:12
     volumes:
       - .:/usr/src/service
     working_dir: /usr/src/service
-    command: node dist/apps/auftraege/main.js
+    command: npm run start:auftraege
     depends_on:
       - db
       - nats

@@ -1,16 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-import { ClientProxyFactory, Transport, ClientProxy } from '@nestjs/microservices';
+import { ClientProxyFactory, Transport, ClientProxy, Client } from '@nestjs/microservices';
 import { ApiTags } from '@nestjs/swagger';
 import { AUFTRAGE_TRANSPORT } from '@app/core';
 
 @ApiTags('auftraege')
 @Controller({path:'auftraege'})
 export class AuftraegeController {
+  @Client(AUFTRAGE_TRANSPORT)
   private client: ClientProxy;
-
-  constructor() {
-    this.client = ClientProxyFactory.create(AUFTRAGE_TRANSPORT);
-  }
 
   @Get()
   getHello() {
